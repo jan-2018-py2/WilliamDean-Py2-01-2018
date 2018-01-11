@@ -1,0 +1,18 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.db import migrations
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('review', '0001_initial'),
+    ]
+
+    operations = [
+        migrations.RenameField(
+            model_name='review',
+            old_name='reviwer',
+            new_name='reviewer',
+        ),
+    ]
