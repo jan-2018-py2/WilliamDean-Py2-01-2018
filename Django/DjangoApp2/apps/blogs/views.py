@@ -17,9 +17,9 @@ def create(request):
     if request.method == "POST":
         print "*" * 50
         print request.POST
-    print request.POST['name']
-    print request.POST['desc']
-    request.session['name'] = "test" 
+        print request.POST['name']
+        print request.POST['desc']
+        request.session['name'] = "test" 
         print "*" * 50
         return redirect("/")
     else:
