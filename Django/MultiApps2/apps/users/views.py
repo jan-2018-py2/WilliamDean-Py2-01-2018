@@ -3,13 +3,13 @@ from django.shortcuts import HttpResponse, redirect
 
 # Create your views here.
 def index(request):
-    return HttpResponse("placeholder to display a list of all the users later")
+    return HttpResponse("placeholder for users to create a new record")
 
 def new(request):
-    return HttpResponse("placeholder to display a new form to create a new user")
+    return HttpResponse("placeholder to later display all the list of users")
 
-def create(request):
-    return redirect('/users')
+def login(request):
+    return HttpResponse("placeholder for users to login")
 
 def show(request, user_id):
     return HttpResponse("placeholder to display user {}".format(user_id))
