@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+        <link href="{% static 'review/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h2>Welcome, {{ user.name }}</h2>
+            <p><a href="{% url 'login:logout' %}">Logout</a></p>
+        </header>
+        <div class="main">
+            <h2>Proverbs:</h2>
+            {% for proverb in recent %}
+            <div class="proverb">
+                <h2><a href="/proverbs/{{proverb.id}}">{{ proverb.author }}</a></h2>
+                <p>Posted by: <a href="/user/{{proverb.posted_by.id}}">{{ proverb.posted_by.name }}</a></p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="side">
+            <h2>Your Favorites:</h2>
+            {% for proverb in more %}
+            <div class="proverb">
+                <h2><a href="/proverbs/{{proverb.id}}">{{ proverb.author }}</a></h2>
+            </div>
+            {% endfor %}
+        </div>
+        <form action="/proverb/create" method="POST">
+            {% csrf_token $}
+            <div class="form-group">
+                <label for="author">Author: </label>
+                <input type="text" name="new_author">
+                <label for="proverb">Proverb: </label>
+                <input type="text" name="proverb">
+            </div>
+        </form>
+    </body>
+</html>
